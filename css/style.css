@@ -295,12 +295,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
 #undo-btn { background: #5d4037; color: var(--text); }
 #undo-btn:hover:not(:disabled) { opacity: 0.88; }
 
-#install-btn {
-  display: none;
-  background: #1565c0;
-  color: #fff;
-}
-
 /* Difficulty */
 #difficulty {
   display: flex;
@@ -347,6 +341,94 @@ button:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
 
 @media (prefers-color-scheme: dark) {
   /* Already dark by default */
+}
+
+/* ── Install popup ── */
+
+#install-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1e1208;
+  border: 1px solid rgba(241,196,15,0.3);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
+  max-width: min(94vw, 420px);
+  width: max-content;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  opacity: 0;
+}
+
+#install-popup:not([hidden]) {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+#install-popup[hidden] { display: none; }
+
+.install-popup-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.install-popup-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.install-popup-text strong {
+  font-size: 0.95rem;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.install-popup-text span {
+  font-size: 0.78rem;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.install-popup-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#install-popup-dismiss {
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.85rem;
+  padding: 6px 8px;
+  font-weight: normal;
+  border-radius: 6px;
+}
+#install-popup-dismiss:hover { color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.07); }
+
+#install-popup-btn {
+  background: var(--gold);
+  color: #000;
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+#install-popup-btn:hover { opacity: 0.88; }
+
+@media (max-width: 480px) {
+  #install-popup { flex-wrap: wrap; justify-content: space-between; }
+  .install-popup-text strong, .install-popup-text span { white-space: normal; }
 }
 
 /* Scrollbar */

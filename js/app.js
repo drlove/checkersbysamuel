@@ -320,21 +320,47 @@ document.addEventListener('DOMContentLoaded', () => {
     scheduleAIMove();
   }
 
-  // PWA install prompt
+  // PWA install popup
   let deferredPrompt;
+  const installPopup = document.getElementById('install-popup');
+  const installBtn = document.getElementById('install-popup-btn');
+  const dismissBtn = document.getElementById('install-popup-dismiss');
+
+  function showInstallPopup() {
+    installPopup.hidden = false;
+    // Trigger transition after paint
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      installPopup.style.opacity = '';
+    }));
+  }
+
+  function hideInstallPopup() {
+    installPopup.style.opacity = '0';
+    installPopup.style.transform = 'translateX(-50%) translateY(120px)';
+    setTimeout(() => { installPopup.hidden = true; installPopup.style.transform = ''; }, 350);
+  }
+
   window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
     deferredPrompt = e;
-    document.getElementById('install-btn').style.display = 'inline-block';
+    // Short delay so user can orient to the game first
+    setTimeout(showInstallPopup, 2500);
   });
 
-  document.getElementById('install-btn').addEventListener('click', async () => {
+  installBtn.addEventListener('click', async () => {
     if (!deferredPrompt) return;
+    hideInstallPopup();
     deferredPrompt.prompt();
     await deferredPrompt.userChoice;
     deferredPrompt = null;
-    document.getElementById('install-btn').style.display = 'none';
   });
+
+  dismissBtn.addEventListener('click', () => {
+    hideInstallPopup();
+    deferredPrompt = null;
+  });
+
+  window.addEventListener('appinstalled', () => hideInstallPopup());
 
   // Register service worker
   if ('serviceWorker' in navigator) {

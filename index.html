@@ -15,6 +15,18 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div id="install-popup" role="dialog" aria-label="Install app" hidden>
+    <img src="icons/icon-192.svg" alt="" class="install-popup-icon">
+    <div class="install-popup-text">
+      <strong>Install Samuel's Checkers</strong>
+      <span>Play offline, anytime — no browser needed</span>
+    </div>
+    <div class="install-popup-actions">
+      <button id="install-popup-dismiss" aria-label="Dismiss">✕</button>
+      <button id="install-popup-btn">Install</button>
+    </div>
+  </div>
+
   <div id="app">
     <header>
       <h1>Samuel's Checkers</h1>
@@ -45,9 +57,7 @@
         <div id="controls">
           <button id="new-game-btn">New Game</button>
           <button id="undo-btn" disabled>Undo</button>
-          <button id="install-btn">⊕ Install App</button>
-
-          <div id="difficulty">
+<div id="difficulty">
             <label for="difficulty-select">AI Level</label>
             <select id="difficulty-select">
               <option value="easy">Easy</option>
