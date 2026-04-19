@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="18" fill="#2c1a0e"/>
+  <!-- Mini checkerboard -->
+  <rect x="12" y="12" width="76" height="76" rx="4" fill="#b5651d"/>
+  <rect x="12" y="12" width="19" height="19" fill="#f5deb3"/>
+  <rect x="50" y="12" width="19" height="19" fill="#f5deb3"/>
+  <rect x="31" y="31" width="19" height="19" fill="#f5deb3"/>
+  <rect x="69" y="31" width="19" height="19" fill="#f5deb3"/>
+  <rect x="12" y="50" width="19" height="19" fill="#f5deb3"/>
+  <rect x="50" y="50" width="19" height="19" fill="#f5deb3"/>
+  <rect x="31" y="69" width="19" height="19" fill="#f5deb3"/>
+  <rect x="69" y="69" width="19" height="19" fill="#f5deb3"/>
+  <!-- Red piece -->
+  <circle cx="40" cy="40" r="12" fill="#c0392b" stroke="#922b21" stroke-width="2"/>
+  <circle cx="37" cy="37" r="4" fill="rgba(255,255,255,0.2)"/>
+  <!-- Black piece (king) -->
+  <circle cx="62" cy="62" r="12" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+  <text x="62" y="67" text-anchor="middle" font-size="12" fill="#f1c40f">♛</text>
+</svg>

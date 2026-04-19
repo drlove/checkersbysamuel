@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2c1a0e">
+  <meta name="description" content="Arthur Samuel's Checkers — a local-first PWA with classic AI">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Checkers">
+  <title>Samuel's Checkers</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Samuel's Checkers</h1>
+      <div id="status" class="status your-turn">Your turn</div>
+    </header>
+
+    <main>
+      <div id="board-wrapper">
+        <div id="board-container">
+          <div id="board" role="grid" aria-label="Checkers board"></div>
+        </div>
+      </div>
+
+      <aside id="panel" aria-label="Game controls">
+        <div id="score-panel">
+          <div class="score-item">
+            <div class="piece-dot red"></div>
+            <span id="red-count">12</span>
+            <span class="score-label">You</span>
+          </div>
+          <div class="score-item">
+            <div class="piece-dot black"></div>
+            <span id="black-count">12</span>
+            <span class="score-label">Samuel</span>
+          </div>
+        </div>
+
+        <div id="controls">
+          <button id="new-game-btn">New Game</button>
+          <button id="undo-btn" disabled>Undo</button>
+          <button id="install-btn">⊕ Install App</button>
+
+          <div id="difficulty">
+            <label for="difficulty-select">AI Level</label>
+            <select id="difficulty-select">
+              <option value="easy">Easy</option>
+              <option value="medium" selected>Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="attribution">
+          Inspired by Arthur Samuel's<br>
+          self-learning checker program (1959)<br>
+          — the first AI to learn from experience
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="js/engine.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

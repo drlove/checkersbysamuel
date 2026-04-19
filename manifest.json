@@ -1,0 +1,25 @@
+{
+  "name": "Samuel's Checkers",
+  "short_name": "Checkers",
+  "description": "Arthur Samuel's classic checker-playing AI — local-first PWA",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#2c1a0e",
+  "theme_color": "#2c1a0e",
+  "categories": ["games"],
+  "icons": [
+    {
+      "src": "icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
